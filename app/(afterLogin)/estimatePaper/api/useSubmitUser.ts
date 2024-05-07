@@ -19,7 +19,6 @@ export const useSubmitUser = () => {
       });
 
       router.replace("/");
-      location.reload();
     },
     onError(error) {
       console.log("error", error);
