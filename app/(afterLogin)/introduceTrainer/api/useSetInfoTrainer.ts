@@ -20,9 +20,7 @@ export const useSetInfoTrainer = () => {
       });
 
       router.replace("/");
-      setTimeout(() => {
-        location.reload();
-      }, 1000);
+      router.refresh();
     },
     onError(error) {
       console.log("error", error);

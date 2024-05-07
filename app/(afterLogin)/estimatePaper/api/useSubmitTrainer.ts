@@ -13,9 +13,10 @@ export const useSubmitTrainer = () => {
     },
     onSuccess(response) {
       router.push("/");
-      setTimeout(() => {
+      router.refresh();
+      /*  setTimeout(() => {
         location.reload();
-      }, 500);
+      }, 1000);*/
     },
     onError(error) {
       console.log("error", error);

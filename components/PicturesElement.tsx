@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Dispatch, SetStateAction, ChangeEventHandler, useRef } from "react";
 import { BGWhiteButton } from "./BGWhiteButton";
 import close from "@/public/join/close.png";
+
 export interface Picture {
   dataUrl: string;
   file: File;
