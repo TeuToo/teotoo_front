@@ -5,18 +5,18 @@ import { useRouter } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
 export const useSubmitTrainer = () => {
   const router = useRouter();
-
+  const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (data: FormData) => {
       const response = await sendRequest(`trainer/estimates`, "post", data);
       return response;
     },
     onSuccess(response) {
+      queryClient.invalidateQueries({
+        queryKey: ["immeEstimateU"],
+        refetchType: "all",
+      });
       router.push("/");
-      router.refresh();
-      /*  setTimeout(() => {
-        location.reload();
-      }, 1000);*/
     },
     onError(error) {
       console.log("error", error);
